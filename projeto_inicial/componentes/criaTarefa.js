@@ -3,8 +3,7 @@ import BotaoDeleta from './deletaTarefa.js'
 
 export const handleNovoItem = (evento) => {
     evento.preventDefault()
-    const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
-    const lista = document.querySelector('[data-list]')
+    const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []    
     const input = document.querySelector('[data-form-input]')
     const valor = input.value
 
@@ -17,11 +16,7 @@ export const handleNovoItem = (evento) => {
         dataFormatada
     }
 
-    const tarefasAtualizadas = [...tarefas, dados]
-
-    const criaTarefa = Tarefa(dados)
-
-    lista.appendChild(criaTarefa)      
+    const tarefasAtualizadas = [...tarefas, dados]          
 
     localStorage.setItem("tarefas", JSON.stringify(tarefasAtualizadas))
 
@@ -29,7 +24,6 @@ export const handleNovoItem = (evento) => {
 }
     
 export const Tarefa = ({ valor, dataFormatada }) => {
-
     //evento.preventDefault()  
 
     const tarefa = document.createElement('li')
